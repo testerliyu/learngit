@@ -1,0 +1,28 @@
+1.了解分布式管理和集中式管理的区别
+2.分布式管理可以多人进行合作，每个人可以独立工作不会互相影响，集中式管理需要有一个中央服务器，每次操作需要从中央服务器拉取代码再进行编写（需要网络），Git不需要网络，
+独立在本机上操作，如果使用github托管的话就需要网络，git也可以指定一个中央服务器，但不影响别人操作
+3.安装Git后先需要在本机创建用户名和邮箱，git config --global user.name，git config --global user.mail
+4.新的git环境需要，创建仓库mkdir learngit，然后进入文件目录使用git init把当前仓库变成git可以管理的仓库（git属于Unix，基本命令和Linux一致）
+5.要想使用git管理仓库目录，就需要将文件copy到git仓库下
+6.每次文件/代码做了修改，需要使用git add readme.txt将文件加入暂存区，再使用git commit -m ""提交（-M参数后面代表文字说明）
+7.如果将文件提交到暂存区后需要撤销修改，使用命令git checkout --readme.txt,如果需要回退版本通过commit ID进行回滚，git reset --hard HEAD^(head^表示回退到上一版本)，可以通过 git log查看commit id
+8.每次修改一次文件都需要add一下，最后一起commit，，使用命令git diff HEAD -- readme.txt可以查看工作区和版本库中的文件区别
+9.git rm readme.txt代表删除readme文件，如果删除错误可以使用git checkout -- readme.txt撤销操作
+10.添加远程仓库，和github相关联，使用命令 git remote add origin git@github.com:testliyu/learngit.git
+11.第一次使用github进行clone和push擦租哦时需要在github个人账号中添加sshkey，sshkey创建命令：ssh-keygen -t rsa -C "youremail@example.com"
+12.第一次使用github时，创建仓库名称和本地一样后，由于远程仓库是空的，所以需要把本地仓库push到github中并关联相关分支，使用命令 git push -u origin master，之后就只需要使用git push命令默认push master分支
+13.从github拉取代码到本地使用git clone git@github.com:testliyu/learngit.git(后面为需要拉取的仓库名称)
+14.git 创建分支使用git branch空格+分支名称，切换分支使用git checkout空格+分支名称，也可使用git checkout -b 空格+分支名称直接创建并切换到分支
+15.多人合作时，有时修改代码会导致冲突而不能上传，就需要先在本地解决冲突后在add上传
+16.删除分支使用git branch -d 空格+分支名称，如果没有合并到主分支的文件需要使用大写D来进行删除，合并分支使用git merge 空格加分支名称（需要在你想将分支合并到哪个分支下）
+17.git remote查看远程库信息，git remote -v显示详细信息
+18.多人合作时，别人需要从github上拉取分支信息使用git clone git@github.com:testerliyu/learngit.git，但通过git branch查看分支时却只有master分支（远程有master分支和Dev分支）
+这个时候就必须创建远程origin的dev分支到本地使用git checkout -b dev origin/dev，这样就可以正常push dev分支到远程，使用git push origin dev命令，如果有冲突的情况就需要先将远程代码git pull到本地解决冲突后在add commit
+如果pull失败，原因是没有指定本地dev分支与远程origin/dev分支的链接，使用git branch --set-upstream dev origin/dev建立连接
+19.打标签使用git tag v1.0.0.0,  git tag -d删除标签，  git push origin v1.0推送标签到远程，git push origin --tags一次推送所有标签，如果推送到远程仓库的标签需要先在本地删除，
+然后使用git push origin :refs/tags/v0.9从远程仓库删除
+20.使用git log --graph --pretty=oneline --abbrev-commit可以看到分支的合并情况
+21.如果当前分支代码还没写完，但又有一个紧急的bug需要处理，可以使用git stash将当前工作隐藏起来，使用git stash list命令查看隐藏的工作
+如果要恢复工作有两个办法：1.git stash apply回复工作，但是stash内容并没有删除，需要再使用git stash drop来删除。2，直接使用git stash pop可以回复工作的同时删除stash内容
+
+
