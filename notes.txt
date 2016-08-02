@@ -9,7 +9,7 @@
 8.每次修改一次文件都需要add一下，最后一起commit，，使用命令git diff HEAD -- readme.txt可以查看工作区和版本库中的文件区别
 9.git rm readme.txt代表删除readme文件，如果删除错误可以使用git checkout -- readme.txt撤销操作
 10.添加远程仓库，和github相关联，使用命令 git remote add origin git@github.com:testliyu/learngit.git
-11.第一次使用github进行clone和push擦租哦时需要在github个人账号中添加sshkey，sshkey创建命令：ssh-keygen -t rsa -C "youremail@example.com"
+11.第一次使用github进行clone和push操作时需要在github个人账号中添加sshkey，sshkey创建命令：ssh-keygen -t rsa -C "youremail@example.com"
 12.第一次使用github时，创建仓库名称和本地一样后，由于远程仓库是空的，所以需要把本地仓库push到github中并关联相关分支，使用命令 git push -u origin master，之后就只需要使用git push命令默认push master分支
 13.从github拉取代码到本地使用git clone git@github.com:testliyu/learngit.git(后面为需要拉取的仓库名称)
 14.git 创建分支使用git branch空格+分支名称，切换分支使用git checkout空格+分支名称，也可使用git checkout -b 空格+分支名称直接创建并切换到分支
