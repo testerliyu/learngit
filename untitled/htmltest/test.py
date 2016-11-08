@@ -17,7 +17,7 @@ class Baidu(unittest.TestCase):
         driver.find_element_by_id('su').click()
         title = driver.title
         time.sleep(3)
-        self.assertEqual(title,'htmltestrunner2_百度搜索')
+        self.assertEqual(title,'htmltestrunner_百度搜索')
 
     def tearDown(self):
         self.driver.quit()
